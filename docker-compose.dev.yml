@@ -1,0 +1,17 @@
+version: "3.7"
+services:
+  frontend:
+    command: ["npm", "run", "dev"]
+    restart: always
+    container_name: dockerapp
+    ports:
+      - "8080:8080"
+    build:
+      context: .
+      dockerfile: Dockerfile
+      # dockerfile: Dockerfile
+    volumes:
+      - /app/src
+      - /app/node_modules
+    env_file:
+      - .env
